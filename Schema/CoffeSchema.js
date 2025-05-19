@@ -6,9 +6,10 @@ const coffeSchema = new mongoose.Schema({
   chef: String,
   suplier: String,
   taste: String,
-  category: String,
+ 
   details: String,
   photo: String,
+  price:Number
 });
 
 const coffeModel = mongoose.model("Coffe",coffeSchema )
