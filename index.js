@@ -52,15 +52,12 @@ app.put("/coffe/:id", async (req, res) => {
   const updateData = req.body;
   const id = req.params.id;
   const filter = { _id: id };
+  const option = {upsert:true}
   const query = {
-    $set: {
-      name: updateData.name,
-      chef: updateData.chef,
-      price: updateData.price,
-    },
+    $set: updateData
   };
   console.log(updateData);
-  const result = await coffeModel.updateOne(filter,query);
+  const result = await coffeModel.updateOne(filter,query,option);
 
   res.send(result);
 });
